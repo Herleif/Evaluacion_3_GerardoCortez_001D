@@ -1,0 +1,131 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Red Roses</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link  rel = "stylesheet" href="{% static 'CSS/Style.css' %}">
+</head>
+<body>
+    <nav class="navbar bg-danger bg-opacity-50">
+        <div>
+            <img class="logo" src="{% static 'CSS/Imagenes/redroses.png' %}">
+        </div>  
+        <div class="textobarra">
+            <a class="navbar-brand" href="{% url 'principal' %}">Principal</a>
+            <a class="navbar-brand" href="{% url 'qsomos' %}">Quiénes Somos</a>
+            <a class="navbar-brand" href="{% url 'galeria' %}">Galería</a>
+            <a class="navbar-brand" href="{% url 'registro' %}">Regístrate</a>
+            <a class="navbar-brand" >Contáctanos</a>
+        </div>
+        <div class="espacioreloj">
+            <div class="relojbarra" id="reloj" class="reloj"></div>
+        </div>
+    </nav> 
+    <form class="formularioregistro" method="post" action="" enctype="application/x-www-form-urlencoded">
+        <h4>Formulario de Ticket</h4>
+        <input class="controles" type="text" id="nombre" placeholder="Ingrese su Nombre" required>
+        <input class="controles" type="text" id="apellido" placeholder="Ingrese su Apellido" required>
+        <input class="controles" type="text" id="orden" placeholder="Ingrese su número de orden" required>
+        <input class="controles" type="email" id="correo" placeholder="Ingrese su Correo" required>
+        <div class="motivoticket">
+            <label for="motivo">Elige motivo de ticket:</label>
+            <select id="motivo" required>
+                <option value="devolucion">Devolución</option>
+                <option value="reparo">Reparo</option>
+                <option value="modificacion">Modificación</option>
+                <option value="compra_especial">Compra Especial</option>
+            </select>
+        </div>
+        <div>
+            <label>Elige el producto involucrado en el ticket:</label><br>
+            <input type="radio"  name="opcion" value="Aros" required>
+            <label for="opcion_a">Aros</label><br>
+            <input type="radio"  name="opcion" value="Llavero">
+            <label for="opcion_b">Llavero</label><br>
+            <input type="radio"  name="opcion" value="Decoración">
+            <label for="opcion_c">Decoración</label><br>
+            <input type="radio"  name="opcion" value="Otro">
+            <label for="opcion_c">Otro</label>
+        </div>
+        <div class="textoticket">
+            <label>Describe con detalle tu solicitud: </label>
+            <textarea id="detalle" cols="44" rows="8" required></textarea>
+        </div>
+        <input class="botonregistro" type="submit" value="Enviar Ticket">
+    </form>
+    <div class="Textomapa">
+    <p>También puedes visitarnos en nuestra tienda fisica ubicada en</p>
+    <p>Providencia 2133, Providencia , Región Metropolitana</p>
+    </div>
+    <div class="mapa">
+        <div id="mapa"></div>
+    </div>
+    <script src="{% static 'ScriptApi.js' %}"></script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?v=beta&key=AIzaSyC5w7CYrhIzEXOZm6zVQyVFEU3yiOmggHw&libraries=places&callback=iniciarMapa">
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.formularioregistro').submit(function(){
+                var nombre = $('#nombre').val();
+                var apellido = $('#apellido').val();
+                var orden = $('#orden').val();
+                var detalle = $('#detalle').val();
+                var correo = $('#correo').val();
+                var letters = /^[A-Za-z]+$/;
+                var numbers = /^[0-9]+$/;
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\d]+$/;
+                if (!nombre.match(letters)) {
+                    alert("El nombre solo puede contener letras");
+                    return false;
+                }
+                if (!apellido.match(letters)) {
+                    alert("El apellido solo pueden contener letras");
+                    return false;
+                }
+                if (orden.length > 20) {
+                    alert("El número de orden debe tener como máximo 20 dígitos");
+                    return false;
+                }
+                if (detalle.trim() === '') {
+                    alert("Por favor, describe tu solicitud");
+                    return false;
+                }
+                if (!emailPattern.test(correo)) {
+                    alert("El correo no puede tener números después del @");
+                    return false;
+                }
+                return true;          
+            });
+        });
+    </script>
+    <script>
+        function actualizarReloj() {
+            const ahora = new Date();
+            const horas = ahora.getHours().toString().padStart(2, '0');
+            const minutos = ahora.getMinutes().toString().padStart(2, '0');
+            const segundos = ahora.getSeconds().toString().padStart(2, '0');
+            const tiempo = `${horas}:${minutos}:${segundos}`;
+            document.getElementById('reloj').innerText = tiempo;
+        }
+        
+        setInterval(actualizarReloj, 1000);
+    </script>
+</body>
+<foot>
+    <div class = piepagina>
+        <p>Gerardo Cortez, @Copyrigth Derechos reservados</p>
+        <div>    
+            <img src="{% static 'CSS/Imagenes/instagram.png' %}" width="20" height="20"> 
+            <img src="{% static 'CSS/Imagenes/facebook.png' %}" width="20" height="20">
+            <img src="{% static 'CSS/Imagenes/twitter.png' %}" width="25" height="25">
+            <img src="{% static 'CSS/Imagenes/whatsapp.png' %}" width="20" height="20">
+        </div>     
+    </div> 
+</foot>
+</html>

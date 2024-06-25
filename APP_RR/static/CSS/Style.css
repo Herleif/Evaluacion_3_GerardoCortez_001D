@@ -1,0 +1,150 @@
+.carrusel{
+    width: 800px;
+    right: 400px;
+    margin:auto;
+    padding-bottom: 50px;
+}
+.logo{
+    padding-left:10px;
+    width: 80px;
+}
+.espacio{
+    width: 80px;
+}
+.piepagina{
+    width: 100%;
+    right: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content:space-around;
+    font-size: small;
+    padding-top: 10px;
+}
+.parrafo{
+    width: 800px;
+    display:flex;
+    padding-bottom: 50px;
+    text-align: justify;
+    font-size: large;
+}
+.Titulo{
+    color: black;
+    text-align: center;
+    font-size: xx-large;
+    padding-top: 60px;
+    padding-bottom: 60px;
+} 
+.gallery{
+    padding:80px 0px;
+}
+.gallery img{
+    background: white;
+    padding: 15px;
+    width: 100%;
+}
+.image-text {
+    display:none;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    z-index: 1;
+}
+.gallery-item-container {
+    position: relative;
+}
+img{
+    max-width: 100%;
+} 
+body{
+    background-color: rgb(255, 193, 193);
+}
+.formularioregistro {
+    width: 400px;
+    background: rgb(255, 97, 97);
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    color: white;
+    margin-bottom: 100px;
+}
+.controles {
+    width: 100%;
+    background: rgb(255, 193, 193);
+    padding: 10px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    color: white;
+    border: none;
+}
+
+.formularioregistro a {
+    color: white;
+}
+
+.formularioregistro p {
+    text-align: center;
+    padding-top: 8px;
+    font-size: 14px;
+}
+.formularioregistro h4 {
+    text-align: center;
+    padding-bottom: 16px;
+}
+.botonregistro {
+    width: 100%;
+    text-align: center;
+    padding: 9px;
+}
+.motivoticket{
+    padding-bottom: 16px;
+}
+.textoticket{
+    padding-top: 12px;
+    padding-bottom: 16px;
+}
+.relojbarra{
+    padding: 10px;
+    display: inline-block;
+    padding-right: 10px;
+    border: double;
+}
+.espacioreloj{
+    padding-right: 15px;
+}
+.mapa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20%;
+}
+#mapa{
+    height: 400px;
+    width: 40%;
+}
+.Textomapa p {
+    display: flex;
+    justify-content: center;
+}
+#fotollave1, #fotollave2, #fotollave3 {
+    background: white;
+    padding: 15px;
+    margin: 0 8px;
+    width: 300px;
+    height: 200px;
+}
+.Fotollavero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0px;
+}
+.Textollavero  {
+    display: flex;
+    justify-content: center;
+}
